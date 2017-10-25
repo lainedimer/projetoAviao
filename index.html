@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html class="no-js" lang="pt-br" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Projeto Aviao</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="lib/css/estilos.css">
+	
+</head>
+<body>
+	<div class="container-all">
+		<div class="row">
+			<div id="entradaDados" class="col-md-3 margem-top">
+				<form name="entrada">
+					<div class="form-group">
+						<input class="form-control" type="text" name="x" placeholder="X"/>
+						<input class="form-control" type="text" name="y" placeholder="Y"/>
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" name="raio" placeholder="Raio"/>
+						<input class="form-control" type="text" name="angulo" placeholder="Angulo"/>
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="text" name="velocidade" placeholder="Velocidade"/>
+						<input class="form-control" type="text" name="direcao" placeholder="Direcao"/>
+					</div>
+					<button class="btn btn-primary botao-direita">Inserir</button>
+				</form>
+			</div>
+			<div id="radar" class="col-md-5 margem-top"></div>
+			<div id="dataGrid" class="col-md-4 margem-top"></div>
+		</div>
+		<div class="row">
+			<div id="transformacao" class="col-md-3 margem-top">
+				<div class="row">
+					<div class="translandar">
+						<form name="translandar">
+							<div class="form-group">
+								<input class="form-control" type="text" name="xt" placeholder="X"/>
+								<input class="form-control" type="text" name="yt" placeholder="Y"/>
+							</div>						
+							<button class="btn btn-primary botao-direita">Translandar</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="descricaoProjeto"></div>
+			<div id="relatorio"></div>
+		</div>
+		<div id="rastreamento"></div>
+	</div>
+</body>
+</html>
