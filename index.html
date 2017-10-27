@@ -7,7 +7,14 @@
 	<title>Projeto Aviao</title>
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="lib/css/estilos.css">
-	
+	<style type="text/css">
+		#canvas {
+		    
+		    margin-left: 50%;
+		    margin-right: 25%;
+		    background: pink;
+		}
+	</style>
 </head>
 <body>
 	<div class="container-all">
@@ -38,10 +45,10 @@
 					<div class="translandar">
 						<form name="translandar">
 							<div class="form-group">
-								<input class="form-control" type="text" name="xt" placeholder="X"/>
-								<input class="form-control" type="text" name="yt" placeholder="Y"/>
+								<input class="form-control" type="number" name="x_translandar" placeholder="X"/>
+								<input class="form-control" type="number" name="y_translandar" placeholder="Y"/>
 							</div>						
-							<button class="btn btn-primary botao-direita">Translandar</button>
+							<button id="btn-translandar" class="btn btn-primary botao-direita">Translandar</button>
 						</form>
 					</div>
 				</div>
@@ -51,5 +58,10 @@
 		</div>
 		<div id="rastreamento"></div>
 	</div>
+
+	<canvas height="500" width="500" id="canvas"></canvas>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src='js/app.js'></script>
 </body>
 </html>
