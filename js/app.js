@@ -42,9 +42,9 @@ $('#btn-translandar').on("click", function(e) {
 	var y = parseInt($("input[name='y_translandar']").val());
 
     console.log(x + ", " + y);
-    console.log(x + LARGURA);
+    console.log(LARGURA - x +"+"+ ALTURA - y);
 
-	ctx.fillRect(x + LARGURA, y + ALTURA, 5, 5);
+	ctx.fillRect(LARGURA - x, ALTURA - y, 5, 5);
 });
 
 
