@@ -3,6 +3,7 @@ var ctx = c.getContext("2d");
 
 const LARGURA = $(c).width() * 0.5;
 const ALTURA = $(c).height() * 0.5;
+
 var img = new Image();
 img.src = "img/aviao.png";
 
@@ -13,7 +14,9 @@ $('#btn-inserir').on("click", function(e) {
     adicionaAviao();
 });
 
-
+/*
+ * Comandos que precisam ser executados ao carregar página
+ */
 function setup() {
 	ctx.fillRect(LARGURA, ALTURA, 2, 2);
 }
@@ -52,6 +55,8 @@ function adicionaAviao() {
 
 	console.log(avioes);
 
+	Table.append(aviao);
+
 	desenha();
 }
 
@@ -60,6 +65,7 @@ function desenha() {
 	avioes.forEach(function(aviao) {
 		ctx.drawImage(img, aviao.x + LARGURA, ALTURA - aviao.y, 30, 30);
 	});
+
 }
 
 setup();
