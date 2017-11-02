@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="pt-br" dir="ltr">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,90 +9,95 @@
 	<link rel="stylesheet" type="text/css" href="lib/css/estilos.css">
 	<style type="text/css">
 		#canvas {
-			margin-top: 50px;
-			margin-left: 200px;
+			margin-top: 20px;
+			float: right;
+			left: 20%;
+			position: absolute;
 			margin-right: 0;
 			background: pink;
 		}
 	</style>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+	 crossorigin="anonymous">
 
 </head>
-<body>
-	<div class="container-all">	
-		<div class="row">
-			<div id="entradaDados" class="col-2 margem-top">
-				<h4>Entrada de Dados</h2>
-					<form name="entrada">
-						<div class="form-group">
-							<div class="row">
-								<div class="col-6">
-									<input class="form-control" type="text" name="x" placeholder="X"/>	
-								</div>
-								<div class="col-6">
-									<input class="form-control" type="text" name="y" placeholder="Y"/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-6">
-									<input class="form-control" type="text" name="raio" placeholder="Raio"/>
-								</div>
-								<div class="col-6">
-									<input class="form-control" type="text" name="angulo" placeholder="Angulo"/>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="row">
-								<div class="col-6">
-									<input class="form-control" type="text" name="velocidade" placeholder="Velocid."/>
-								</div>
-								<div class="col-6">
-									<input class="form-control" type="text" name="direcao" placeholder="Direcao"/>
-								</div>
-							</div>
-						</div>
-						
 
-						<button class="btn btn-dark botao-direita">Inserir</button>
-					</form>
-					
-				</div>
-				<div id="transformacao" class="col-2 margem-top">
-						<form name="translandar">
-								<div class="row">
-									<div class="col-6">
-										<input class="form-control" type="number" name="x_translandar" placeholder="X"/>
-									</div>								
-									<div class="col-6">
-										<input class="form-control" type="number" name="y_translandar" placeholder="Y"/>
-									</div>
-								</div>	
-							<button id="btn-translandar" class="btn btn-dark botao-direita">Translandar</button>
-						</form>
+<body>
+	<div class="container-fluid">
+		<div id="entradaDados" style="float: left; margin-top: 20px" class="col-md-2 ">
+			<form name="inserir" id="dadosInserir">
+				<label for="entradaDados">Entrada de Dados</label>
+				<div class="row">
+					<div class="col-md-6">
+						<input class="form-control" type="number" name="x_inserir" placeholder="X" />
 					</div>
-				<canvas height="500" width="500" id="canvas"></canvas>
-				<div id="dataGrid" class="col-md-4 margem-top"></div>
-			</div>
-			<div class="row">
-				
-			</div>
-			<div id="descricaoProjeto"></div>
-			<div id="relatorio"></div>
+					<div class="col-md-6">
+						<input class="form-control" type="number" name="y_inserir" placeholder="Y" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input class="form-control" type="number" name="raio_inserir" placeholder="Raio" />
+					</div>
+					<div class="col-md-12">
+						<input class="form-control" type="number" name="angulo_inserir" placeholder="Ângulo" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<input class="form-control" type="number" name="velocidade_inserir" placeholder="Velocidade" />
+					</div>
+					<div class="col-md-12">
+						<input class="form-control" type="number" name="direcao_inserir" placeholder="Direção" />
+					</div>
+				</div>
+				<button style="margin-top: 10px;" id="btn-inserir" class="btn btn-dark botao-direita">Inserir</button>
+			</form>
+
 		</div>
-		<div id="rastreamento"></div>
+
+		<div class="row">
+
+		</div>
+
+
+		<canvas height="500" width="500" id="canvas"></canvas>
+		<div id="dataGrid" style="float: right;" class="col-md-4 margem-top">
+			<table class="table table-striped">
+				<thead>
+					<th>#</th>
+					<th>ID</th>
+					<th>X</th>
+					<th>Y</th>
+					<th>R</th>
+					<th>A</th>
+					<th>V</th>
+					<th>D</th>
+				</thead>
+			</table>
+		</div>
+	</div>
+
+	<div id="descricaoProjeto"></div>
+	<div id="relatorio"></div>
+	</div>
+	<div id="rastreamento"></div>
 	</div>
 	<div id="descricaoProjeto"></div>
 	<div id="relatorio"></div>
-</div>
-<div id="rastreamento"></div>
-</div>
+	</div>
+	<div id="rastreamento"></div>
+	</div>
 
 
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/app/models/Aviao.js"></script>
+	<script type="text/javascript" src='js/app.js'></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script type="text/javascript" src='js/app.js'></script>
+
+	<script>
+	</script>
+
 </body>
+
 </html>
