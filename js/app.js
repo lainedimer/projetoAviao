@@ -14,6 +14,11 @@ $('#btn-inserir').on("click", function(e) {
     adicionaAviao();
 });
 
+$('#btn-remover').on("click", function(e) {
+	e.preventDefault();
+	removeAviao();
+});
+
 /*
  * Comandos que precisam ser executados ao carregar página
  */
@@ -22,48 +27,63 @@ function setup() {
 }
 
 /*
- * Retorna o valor de input conforme name informado
- * @return string
- */
-function getValue(inputName) {
-	return $("input[name=" + inputName + "]").val();
-}
-
-/*
  * Retorna os dados do form para inserir avião
  * @return object
  */
 function getFormInserir() {
 	let dados = {
-		x: parseInt(getValue("x_inserir")),
-		y: parseInt(getValue("y_inserir")),
-		raio: parseInt(getValue("raio_inserir")),
-		angulo: parseInt(getValue("angulo_inserir")),
-		velocidade: parseInt(getValue("velocidade_inserir")),
-		direcao: parseInt(getValue("direcao_inserir"))
+		x: parseInt(Input.getValue("x_inserir")),
+		y: parseInt(Input.getValue("y_inserir")),
+		raio: parseInt(Input.getValue("raio_inserir")),
+		angulo: parseInt(Input.getValue("angulo_inserir")),
+		velocidade: parseInt(Input.getValue("velocidade_inserir")),
+		direcao: parseInt(Input.getValue("direcao_inserir"))
 	};
 
 	return dados;
 }
 
+function getCheckboxMarcados() {
+	var campos = [];
+
+	$("input[type='checkbox'][name='table-check']:checked").each(function(val) {
+		campos.push($(this).val());
+	});
+
+	return campos;
+}
+
 function adicionaAviao() {
-	let data = getFormInserir()
+	let data = getFormInserir();
 
 	let aviao = new Aviao(data.x, data.y, data.raio, data.angulo, data.velocidade, data.direcao);
 
 	avioes.push(aviao);
 
-	console.log(avioes);
-
-	Table.append(aviao);
+	var id = avioes.lastIndexOf(aviao);
+	Table.append(id, aviao);
 
 	desenha();
 }
 
+function removeAviao() {
+	
+	var campos = getCheckboxMarcados();
+	
+	campos.forEach(function(v) {
+		avioes.splice(v, 1);
+
+	});
+
+	console.log(avioes);
+
+}
+
+
 function desenha() {
 
 	avioes.forEach(function(aviao) {
-		ctx.drawImage(img, aviao.x + LARGURA, ALTURA - aviao.y, 30, 30);
+		ctx.drawImage(img, (aviao.x + LARGURA) - 15, (ALTURA - aviao.y) - 15, 30, 30);
 	});
 
 }
