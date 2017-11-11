@@ -11,7 +11,15 @@ var avioes = [];
 
 $('#btn-inserir').on("click", function(e) {
 	e.preventDefault();
-    adicionaAviao();
+
+	var form = $("#dadosInserir")[0];
+
+	// if(form.checkValidity()) {
+	//	adicionaAviao();	
+	// }
+
+	adicionaAviao();
+    
 });
 
 $('#btn-remover').on("click", function(e) {
@@ -61,7 +69,9 @@ function adicionaAviao() {
 	avioes.push(aviao);
 
 	var id = avioes.lastIndexOf(aviao);
-	Table.append(id, aviao);
+	aviao['id'] = id;
+
+	Table.append(aviao);
 
 	desenha();
 }
@@ -69,24 +79,25 @@ function adicionaAviao() {
 function removeAviao() {
 	
 	var campos = getCheckboxMarcados();
+
 	
-	campos.forEach(function(v) {
-		avioes.splice(v, 1);
 
-	});
+	Table.update(avioes);
 
-	console.log(avioes);
-
+	desenha();
 }
 
-
 function desenha() {
+
+	ctx.clearRect(0, 0, c.width, c.height);
 
 	avioes.forEach(function(aviao) {
 		ctx.drawImage(img, (aviao.x + LARGURA) - 15, (ALTURA - aviao.y) - 15, 30, 30);
 	});
 
 }
+
+
 
 setup();
 

@@ -29,35 +29,44 @@
 				<label for="entradaDados">Entrada de Dados</label>
 				<div class="row">
 					<div class="col-md-6">
-						<input class="form-control" type="number" name="x_inserir" placeholder="X" />
+						<input required class="form-control" type="number" name="x_inserir" placeholder="X" />
 					</div>
 					<div class="col-md-6">
-						<input class="form-control" type="number" name="y_inserir" placeholder="Y" />
+						<input required class="form-control" type="number" name="y_inserir" placeholder="Y" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<input class="form-control" type="number" name="raio_inserir" placeholder="Raio" />
+						<input required class="form-control" type="number" name="raio_inserir" placeholder="Raio" />
 					</div>
 					<div class="col-md-12">
-						<input class="form-control" type="number" name="angulo_inserir" placeholder="Ângulo" />
+						<input required class="form-control" type="number" name="angulo_inserir" placeholder="Ângulo" />
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12">
-						<input class="form-control" type="number" name="velocidade_inserir" placeholder="Velocidade" />
+						<input required class="form-control" type="number" name="velocidade_inserir" placeholder="Velocidade" />
 					</div>
 					<div class="col-md-12">
-						<input class="form-control" type="number" name="direcao_inserir" placeholder="Direção" />
+						<input required class="form-control" type="number" name="direcao_inserir" placeholder="Direção" />
 					</div>
 				</div>
-				<button style="margin-top: 10px;" id="btn-inserir" class="btn btn-dark botao-direita">Inserir</button>
+				<button type="submit" style="margin-top: 10px;" id="btn-inserir" class="btn btn-dark botao-direita">Inserir</button>
 			</form>
 
 		</div>
 
 		<div class="row">
-
+			<div class="col-md-2">
+				<input class="form-control" type="number" name="x_translandar" placeholder="X"></input>
+			</div>
+			<div class="col-md-2">
+				<input class="form-control" name="y_translandar" placeholder="Y"></input>
+				
+			</div>
+			<div class="col-md-2">
+				<button class="btn btn-dark" >Translandar</button>
+			</div>
 		</div>
 
 
@@ -80,17 +89,6 @@
 			<button class="btn btn-dark" id="btn-remover">Pegar valores</button>
 		</div>
 
-	</div>
-
-	<div id="descricaoProjeto"></div>
-	<div id="relatorio"></div>
-	</div>
-	<div id="rastreamento"></div>
-	</div>
-	<div id="descricaoProjeto"></div>
-	<div id="relatorio"></div>
-	</div>
-	<div id="rastreamento"></div>
 	</div>
 
 
