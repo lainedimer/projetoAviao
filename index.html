@@ -18,56 +18,71 @@
 		}
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
-	 crossorigin="anonymous">
+	crossorigin="anonymous">
 
 </head>
 
 <body>
 	<div class="container-fluid">
 		<div id="entradaDados" style="float: left; margin-top: 20px" class="col-md-2 ">
-			<form name="inserir" id="dadosInserir">
-				<label for="entradaDados">Entrada de Dados</label>
-				<div class="row">
-					<div class="col-md-6">
-						<input required class="form-control" type="number" name="x_inserir" placeholder="X" />
+			<div  class="row">
+				<form name="inserir" id="dadosInserir">
+					<label for="entradaDados">Entrada de Dados</label>
+					<div class="row">
+						<div class="col-md-6">
+							<input required class="form-control" type="number" name="x_inserir" placeholder="X" />
+						</div>
+						<div class="col-md-6">
+							<input required class="form-control" type="number" name="y_inserir" placeholder="Y" />
+						</div>
 					</div>
-					<div class="col-md-6">
-						<input required class="form-control" type="number" name="y_inserir" placeholder="Y" />
+					<div class="row">
+						<div class="col-md-12">
+							<input required class="form-control" type="number" name="raio_inserir" placeholder="Raio" />
+						</div>
+						<div class="col-md-12">
+							<input required class="form-control" type="number" name="angulo_inserir" placeholder="Ângulo" />
+						</div>
 					</div>
-				</div>
-				<div class="row">
+					<div class="row">
+						<div class="col-md-12">
+							<input required class="form-control" type="number" name="velocidade_inserir" placeholder="Velocidade" />
+						</div>
+						<div class="col-md-12">
+							<input required class="form-control" type="number" name="direcao_inserir" placeholder="Direção" />
+						</div>
+					</div>
+					<button type="submit" style="margin-top: 10px;" id="btn-inserir" class="btn btn-dark botao-direita">Inserir</button>
+				</form>
+			</div>
+			<div class="row">
+				<form name="translandar" id="dadosTranslandar">
 					<div class="col-md-12">
-						<input required class="form-control" type="number" name="raio_inserir" placeholder="Raio" />
+						<input required class="form-control" type="number" name="x_translandar" placeholder="X"></input>
 					</div>
 					<div class="col-md-12">
-						<input required class="form-control" type="number" name="angulo_inserir" placeholder="Ângulo" />
+						<input required class="form-control" name="y_translandar" placeholder="Y"></input>
 					</div>
-				</div>
-				<div class="row">
+					<button type="submit" style="margin-top: 10px;" id="btn-translandar" class="btn btn-dark botao-direita">Translandar</button>	
+				</form>
+			</div>
+
+			<div class="row">
+				<form name="escalonar" id="dadosEscalonar">
 					<div class="col-md-12">
-						<input required class="form-control" type="number" name="velocidade_inserir" placeholder="Velocidade" />
+						<input required class="form-control" type="number" name="x_escalonar" placeholder="X"></input>
 					</div>
 					<div class="col-md-12">
-						<input required class="form-control" type="number" name="direcao_inserir" placeholder="Direção" />
+						<input required class="form-control" name="y_escalonar" placeholder="Y"></input>
 					</div>
-				</div>
-				<button type="submit" style="margin-top: 10px;" id="btn-inserir" class="btn btn-dark botao-direita">Inserir</button>
-			</form>
+					<button type="submit" style="margin-top: 10px;" id="btn-escalonar" class="btn btn-dark botao-direita">Escalonar</button>	
+				</form>
+			</div>
 
 		</div>
 
-		<div class="row">
-			<div class="col-md-2">
-				<input class="form-control" type="number" name="x_translandar" placeholder="X"></input>
-			</div>
-			<div class="col-md-2">
-				<input class="form-control" name="y_translandar" placeholder="Y"></input>
-				
-			</div>
-			<div class="col-md-2">
-				<button class="btn btn-dark" >Translandar</button>
-			</div>
-		</div>
+		
+
 
 
 		<canvas height="500" width="500" id="canvas"></canvas>
@@ -91,8 +106,8 @@
 
 	</div>
 
-
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/app/utils/Calculo.js"></script>
 	<script type="text/javascript" src="js/app/utils/Input.js"></script>
 	<script type="text/javascript" src="js/app/utils/Table.js"></script>
 	<script type="text/javascript" src="js/app/models/Aviao.js"></script>
