@@ -4,9 +4,11 @@ class Input {
 		return $("input[name=" + inputName + "]").val();
 	}
 
-	static clear(id){
+	// static clear(id){
 
-		$("input[name=" + id + "]").val("");
+	// 	$("#" + id + "]").each (function()){
+	// 		this.reset();
+	// 	}
 
-	}
+	// }
 }

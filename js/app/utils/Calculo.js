@@ -1,6 +1,6 @@
 class Calculo{
 
-	static anslandar(aviao,tx,ty) {
+	static translandar(aviao,tx,ty) {
 
 	aviao.x+= tx;
 	aviao.y+= ty;
@@ -17,6 +17,13 @@ class Calculo{
 	return aviao;
 
 }
+	static rotacionar(angulo){
+		aviao.x.rotate(angulo);
+		aviao.y.rotate(angulo);
+
+		return aviao;
+	}
+
 }
 
 
