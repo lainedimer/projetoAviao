@@ -28,18 +28,16 @@ $('#btn-translandar').on("click", function(e) {
 	var campos = getCheckboxMarcados();
 	var dados = getFormTranslandar();
 
-
 	avioes.forEach(function(aviao){
 		campos.forEach(function(campo){
 			if(campo == aviao.id){
-				avioes[aviao.id] = Calculotranslandar(aviao, dados.tx, dados.ty);
+				avioes[aviao.id] = Calculo.translandar(aviao, dados.tx, dados.ty);
 				console.log(avioes);
 			}
 		});
 	});
 	desenha();
 	Table.update(avioes);
-	limpaCamposTranslandar();
 
 });
 
@@ -95,9 +93,9 @@ function setup() {
 	ctx.fillRect(LARGURA, ALTURA, 2, 2);
 }
 
-function limpaCamposTranslandar(){
-	Input.clear("translandar");
-}
+// function limpaCamposTranslandar(){
+// 	Input.clear("dadosTranslandar");
+// }
 
 function getFormTranslandar(){
 	let dados = {
@@ -189,11 +187,7 @@ function desenha() {
 		ctx.drawImage(img, (aviao.x + LARGURA) - 15, (ALTURA - aviao.y) - 15, 30, 30);
 
 	});
-
-
 }
-
-
 
 setup();
 

@@ -6,7 +6,7 @@ class Input {
 
 	// static clear(id){
 
-	// 	$("#" + id + "]").each (function()){
+	// 	$('#' + id).each (function()){
 	// 		this.reset();
 	// 	}
 
