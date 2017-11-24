@@ -14,11 +14,11 @@ $('#btn-inserir').on("click", function(e) {
 
 	var form = $("#dadosInserir")[0];
 
-	// if(form.checkValidity()) {
-	//	adicionaAviao();	
-	// }
+	if(form.checkValidity()) {
+		adicionaAviao();	
+	}
 
-	adicionaAviao();
+	//adicionaAviao();
 
 });
 
@@ -169,8 +169,6 @@ function removeAviao() {
 
 	var campos = getCheckboxMarcados();
 
-
-
 	Table.update(avioes);
 
 	desenha();
@@ -180,12 +178,16 @@ function removeAviao() {
 function desenha() {
 
 	ctx.clearRect(0, 0, c.width, c.height);
+	var TO_RADIANS = Math.PI/180;
 
 	avioes.forEach(function(aviao) {
 		
-		//ctx.rotate(aviao.angulo);
-		ctx.drawImage(img, (aviao.x + LARGURA) - 15, (ALTURA - aviao.y) - 15, 30, 30);
-
+		ctx.save();
+	    ctx.translate((aviao.x + LARGURA), (ALTURA - aviao.y));
+	    ctx.rotate((Math.PI / 180) * -aviao.angulo);
+	    ctx.drawImage(img, -15, -15, 30, 30);
+	    ctx.restore();
+		
 	});
 }
 

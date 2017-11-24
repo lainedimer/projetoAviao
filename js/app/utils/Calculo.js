@@ -18,12 +18,7 @@ class Calculo{
 
 	}
 	
-	// static rotacionar(angulo){
-	// 	aviao.x.rotate(angulo);
-	// 	aviao.y.rotate(angulo);
-
-	// 	return aviao;
-	// }
+	
 
 }
 
