@@ -4,11 +4,7 @@ class Input {
 		return $("input[name=" + inputName + "]").val();
 	}
 
-	// static clear(id){
-
-	// 	$('#' + id).each (function()){
-	// 		this.reset();
-	// 	}
-
-	// }
+	static clearForm(f) {
+		$(f).closest('form').find("input[type=text], input[type=number], textarea").val("");
+	}
 }

@@ -30,7 +30,7 @@
 					<label for="entradaDados">Entrada de Dados</label>
 					<div class="row">
 						<div class="col-md-6">
-							<input max="240" ="" required class="form-control" type="number" name="x_inserir" placeholder="X" />
+							<input max="240" required class="form-control" type="number" name="x_inserir" placeholder="X" />
 						</div>
 						<div class="col-md-6">
 							<input max="240" required class="form-control" type="number" name="y_inserir" placeholder="Y" />
@@ -61,7 +61,7 @@
 						<input required class="form-control" type="number" name="x_translandar" placeholder="X"></input>
 					</div>
 					<div class="col-md-12">
-						<input required class="form-control" name="y_translandar" placeholder="Y"></input>
+						<input required class="form-control" type="number" name="y_translandar" placeholder="Y"></input>
 					</div>
 					<button type="submit" style="margin-top: 10px;" id="btn-translandar" class="btn btn-dark botao-direita">Translandar</button>	
 				</form>
@@ -96,10 +96,6 @@
 
 		</div>
 
-		
-
-
-
 		<canvas height="500" width="500" id="canvas"></canvas>
 		
 		<div id="tabela" style="float: right; margin-right: 20px;" class="col-md-4 margem-top">
@@ -116,12 +112,13 @@
 				</thead>
 				<tbody id="table-body"></tbody>
 			</table>
-			<button class="btn btn-dark" id="btn-remover">Pegar valores</button>
+			<button class="btn btn-dark" id="btn-remover">Limpar</button>
 		</div>
 
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="js/app/utils/Form.js"></script>
 	<script type="text/javascript" src="js/app/utils/Calculo.js"></script>
 	<script type="text/javascript" src="js/app/utils/Input.js"></script>
 	<script type="text/javascript" src="js/app/utils/Table.js"></script>

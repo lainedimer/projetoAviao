@@ -4,9 +4,6 @@ var ctx = c.getContext("2d");
 const LARGURA = $(c).width() * 0.5;
 const ALTURA = $(c).height() * 0.5;
 
-var img = new Image();
-img.src = "img/aviao.png";
-
 var avioes = [];
 
 $('#btn-inserir').on("click", function(e) {
@@ -14,11 +11,13 @@ $('#btn-inserir').on("click", function(e) {
 
 	var form = $("#dadosInserir")[0];
 
-	if(form.checkValidity()) {
-		adicionaAviao();	
-	}
+	// if(form.checkValidity()) {
+	//	adicionaAviao();	
+	//}
 
-	//adicionaAviao();
+	adicionaAviao();
+
+	Input.clearForm(this);
 
 });
 
@@ -26,18 +25,20 @@ $('#btn-translandar').on("click", function(e) {
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
-	var dados = getFormTranslandar();
+	var dados = Form.getFormTranslandar();
 
 	avioes.forEach(function(aviao){
 		campos.forEach(function(campo){
 			if(campo == aviao.id){
 				avioes[aviao.id] = Calculo.translandar(aviao, dados.tx, dados.ty);
-				console.log(avioes);
 			}
 		});
 	});
+
 	desenha();
 	Table.update(avioes);
+
+	Input.clearForm(this);
 
 });
 
@@ -45,7 +46,7 @@ $('#btn-escalonar').on("click", function(e) {
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
-	var dados = getFormEscalonar();
+	var dados = Form.getFormEscalonar();
 
 
 	avioes.forEach(function(aviao){
@@ -55,10 +56,9 @@ $('#btn-escalonar').on("click", function(e) {
 			}
 		});
 	});
+
 	desenha();
 	Table.update(avioes);
-
-
 });
 
 
@@ -66,7 +66,7 @@ $('#btn-rotacao').on("click", function(e) {
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
-	var dados = getFormRotacionar();
+	var dados = Form.getFormRotacionar();
 
 
 	avioes.forEach(function(aviao){
@@ -93,51 +93,6 @@ function setup() {
 	ctx.fillRect(LARGURA, ALTURA, 2, 2);
 }
 
-// function limpaCamposTranslandar(){
-// 	Input.clear("dadosTranslandar");
-// }
-
-function getFormTranslandar(){
-	let dados = {
-		tx: parseInt(Input.getValue("x_translandar")),
-		ty: parseInt(Input.getValue("y_translandar"))
-	};
-
-	return dados;
-}
-
-function getFormEscalonar(){
-	let dados = {
-		tx: parseInt(Input.getValue("x_escalonar")),
-		ty: parseInt(Input.getValue("y_escalonar"))
-	};
-
-	return dados;
-}
-
-function getFormRotacionar(){
-	let dados = {
-		tx: parseInt(Input.getValue("x_rotacionar")),
-		ty: parseInt(Input.getValue("y_rotacionar")),
-		angulo: parseInt(Input.getValue("ang_rotacionar"))
-	};
-
-	return dados;
-}
-
-function getFormInserir() {
-	let dados = {
-		x: parseInt(Input.getValue("x_inserir")),
-		y: parseInt(Input.getValue("y_inserir")),
-		raio: parseInt(Input.getValue("raio_inserir")),
-		angulo: parseInt(Input.getValue("angulo_inserir")),
-		velocidade: parseInt(Input.getValue("velocidade_inserir")),
-		direcao: parseInt(Input.getValue("direcao_inserir"))
-	};
-
-	return dados;
-}
-
 function getCheckboxMarcados() {
 	var campos = [];
 
@@ -150,7 +105,7 @@ function getCheckboxMarcados() {
 
 
 function adicionaAviao() {
-	let data = getFormInserir();
+	let data = Form.getFormInserir();
 
 	let aviao = new Aviao(data.x, data.y, data.raio, data.angulo, data.velocidade, data.direcao);
 
@@ -160,14 +115,13 @@ function adicionaAviao() {
 	aviao['id'] = id;
 
 	Table.append(aviao);
-
 	
 	desenha();
 }
 
 function removeAviao() {
 
-	var campos = getCheckboxMarcados();
+	avioes = [];
 
 	Table.update(avioes);
 
@@ -178,16 +132,10 @@ function removeAviao() {
 function desenha() {
 
 	ctx.clearRect(0, 0, c.width, c.height);
-	var TO_RADIANS = Math.PI/180;
+	setup();
 
-	avioes.forEach(function(aviao) {
-		
-		ctx.save();
-	    ctx.translate((aviao.x + LARGURA), (ALTURA - aviao.y));
-	    ctx.rotate((Math.PI / 180) * -aviao.angulo);
-	    ctx.drawImage(img, -15, -15, 30, 30);
-	    ctx.restore();
-		
+	avioes.forEach(function(aviao) {	
+		aviao.draw(ctx);		
 	});
 }
 
