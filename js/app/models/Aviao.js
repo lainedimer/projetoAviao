@@ -15,12 +15,9 @@
     draw(ctx) {
         ctx.save();
         ctx.translate((this.x + LARGURA), (ALTURA - this.y));
-        ctx.rotate((Math.PI / 180) * -this.angulo);
+        ctx.rotate((Math.PI / 180) * -this.direcao);
         ctx.drawImage(img, -15, -15, 30, 30);
         ctx.restore();
     }
 
-    get polarCoord() {
-
-    }
-}
+ }

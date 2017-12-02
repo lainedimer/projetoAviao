@@ -29,6 +29,7 @@ class Form {
 	}
 
 	static getFormInserir() {
+
 		let dados = {
 			x: parseInt(Input.getValue("x_inserir")),
 			y: parseInt(Input.getValue("y_inserir")),

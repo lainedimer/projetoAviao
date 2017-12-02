@@ -2,7 +2,7 @@ class Table {
 
     static append(data) {
 
-        let td = "<tr><td><input name='table-check' " + data.id + " type='checkbox' value=" + data.id + "></td>" +
+        let td = "<tr><td><input checked name='table-check' " + data.id + " type='checkbox' value=" + data.id + "></td>" +
                   "<td id=" + data.id + ">" + data.id + "</td>" +
                   "<td>" + data.x + "</td>" +
                   "<td>" + data.y + "</td>" +
