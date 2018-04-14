@@ -12,6 +12,8 @@ document.getElementById("btn-inserir").addEventListener("click", function(e) {
 
 	adicionaAviao();
 
+	console.log('teste');
+
 	Input.clearForm(this);
 });
 
