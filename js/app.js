@@ -6,22 +6,19 @@ const ALTURA = $(c).height() * 0.5;
 
 var avioes = [];
 
-$('#btn-inserir').on("click", function(e) {
+document.getElementById("btn-inserir").addEventListener("click", function(e) {
+
 	e.preventDefault();
-
-	var form = $("#dadosInserir")[0];
-
-	// if(form.checkValidity()) {
-	//	adicionaAviao();	
-	//}
 
 	adicionaAviao();
 
 	Input.clearForm(this);
-
 });
 
-$('#btn-translandar').on("click", function(e) {
+
+
+document.getElementById("btn-translandar").addEventListener("click", function(e) {
+	
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
@@ -42,7 +39,9 @@ $('#btn-translandar').on("click", function(e) {
 
 });
 
-$('#btn-escalonar').on("click", function(e) {
+
+document.getElementById("btn-escalonar").addEventListener("click", function(e) {
+
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
@@ -59,10 +58,11 @@ $('#btn-escalonar').on("click", function(e) {
 
 	desenha();
 	Table.update(avioes);
-});
+})
 
 
-$('#btn-rotacionar').on("click", function(e) {
+document.getElementById("btn-rotacionar").addEventListener("click", function(e) {
+
 	e.preventDefault();
 
 	var campos = getCheckboxMarcados();
@@ -82,13 +82,14 @@ $('#btn-rotacionar').on("click", function(e) {
 	desenha();
 	Table.update(avioes);
 
-
 });
 
+document.getElementById("btn-remover").addEventListener("click", function(e) {
 
-$('#btn-remover').on("click", function(e) {
 	e.preventDefault();
+
 	removeAviao();
+
 });
 
 
@@ -98,6 +99,7 @@ function setup() {
 
 function getCheckboxMarcados() {
 	var campos = [];
+
 
 	$("input[type='checkbox'][name='table-check']:checked").each(function(val) {
 		campos.push($(this).val());
